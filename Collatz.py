@@ -40,8 +40,23 @@ return the max cycle length in the range [i, j]
     assert i > 0
     assert j > 0
     # <your code>
-
-
+	
+	assert i < j
+	
+	while i < j
+		k = i; # new i that can be changed
+		while i > 1
+			if mod k/2 == 1
+				k = 3k + 1
+				n++ # increment the counter
+			else
+				k = k/2
+				n++ # increment the counter
+			
+			if v < n
+				v = n
+				
+			i++
 
 
   # while(i<=j)
