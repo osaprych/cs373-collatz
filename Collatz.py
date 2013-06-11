@@ -12,11 +12,11 @@
 
 def collatz_read (r, a) :
     """
-reads two ints into a[0] and a[1]
-r is a reader
-a is an array of int
-return true if that succeeds, false otherwise
-"""
+	reads two ints into a[0] and a[1]
+	r is a reader
+	a is an array of int
+	return true if that succeeds, false otherwise
+	"""
     s = r.readline()
     if s == "" :
         return False
@@ -32,34 +32,46 @@ return true if that succeeds, false otherwise
 # ------------
 
 def collatz_eval (i, j) :
-    """
-i is the beginning of the range, inclusive
-j is the end of the range, inclusive
-return the max cycle length in the range [i, j]
-"""
-    assert i > 0
-    assert j > 0
-    # <your code>
-	
+	"""
+	i is the beginning of the range, inclusive
+	j is the end of the range, inclusive
+	return the max cycle length in the range [i, j]
+	"""
+	assert i > 0
+	assert j > 0
 	assert i < j
-	
-	while i < j
-		k = i; # new i that can be changed
-		while i > 1
-			if mod k/2 == 1
-				k = 3k + 1
-				n++ # increment the counter
-			else
-				k = k/2
-				n++ # increment the counter
+	v = 1
+	for k in range(i, j):
+		c = 1
+		#k = i
+		while k > 1 :
+			if (k % 2) == 0 :
+				k = (k / 2)
+			else :
+				k = (3 * k) + 1
+			c += 1
+		if (v < c) :
+			v = c
+		i+=1
+	"""	
+	v = 1
+		while(i < j):
+			k = i; # new i that can be changed
+			while (i > 1):
+				n = 0
+				if (k%2 == 1):
+					k = (3*k) + 1
+					n+=1 # increment the counter
+				else:
+					k = k/2
+					n+=1 # increment the counter
 			
-			if v < n
-				v = n
+				if (v < n):
+					v = n
 				
-			i++
-
-
-  # while(i<=j)
+				i+=1
+	"""
+	# while(i<=j)
 	# 
 	# while(i>1)
 	# 	if mod(i/2) == 1
@@ -70,10 +82,9 @@ return the max cycle length in the range [i, j]
 	#	if mod(j/2) == 1
 	#		j=3j+1
 	#	else j=j/2
-
-    v = 1
-    assert v > 0
-    return v
+	#v = 1
+	assert v > 0
+	return v
 
 # -------------
 # collatz_print
@@ -103,5 +114,6 @@ w is a writer
     while collatz_read(r, a) :
         v = collatz_eval(a[0], a[1])
         collatz_print(w, a[0], a[1], v)
+
 
 
