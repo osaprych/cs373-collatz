@@ -1,3 +1,73 @@
+commit 6ebb7895f5a4cbaef97d2601b5d09f6a061e7556
+Author: Olga <osaprych@gmail.com>
+Date:   Thu Jun 13 18:38:14 2013 -0500
+
+    second commit
+
+commit a885a7986ab90321c99d66d047e759c542eb232d
+Merge: 52adc9b b7ee55e
+Author: Olga <osaprych@gmail.com>
+Date:   Thu Jun 13 18:35:48 2013 -0500
+
+    Merge branch 'master' of https://gsthub.com/osaprych/cs373-collatz
+    first pull
+
+commit 52adc9bd185f15343afb192dc2294e9c875b7932
+Author: Olga <osaprych@gmail.com>
+Date:   Thu Jun 13 18:34:15 2013 -0500
+
+    second commit
+
+commit b7ee55e316307fac5e69b120886b7658fac8c121
+Author: osaprych <osaprych@gmail.com>
+Date:   Thu Jun 13 16:12:00 2013 -0500
+
+    Update SphereCollatz.py
+    
+    New Code with Lazy Cache that passes test on Sphere.
+
+commit 83b7c14a04ceb8c35dc4953a7916556d12fddcbe
+Author: osaprych <osaprych@gmail.com>
+Date:   Wed Jun 12 13:16:48 2013 -0500
+
+    Create SphereCollatz.py
+    
+    Simplest solution accepted by Sphere
+
+commit c26f3fd124603e6776200c18c35e17fb33f3200a
+Author: osaprych <osaprych@gmail.com>
+Date:   Mon Jun 10 19:08:14 2013 -0500
+
+    Update Collatz.py
+    
+    It works, i.e. gives the right output with the given test.
+
+commit 4678faf73055bcd3da3cc0ec059e733cf1c92d61
+Author: osaprych <osaprych@gmail.com>
+Date:   Mon Jun 10 20:05:50 2013 -0400
+
+    Update Collatz.py
+    
+    My first changes; haven't compiled yet.
+
+commit 002be068f6fd2deab0421f331dddf8a6eb4e50e2
+Author: osaprych <osaprych@gmail.com>
+Date:   Mon Jun 10 18:41:30 2013 -0400
+
+    Create TestCollatz.py
+
+commit d173638ea740ebe487be9bb2c55a36da51d95c24
+Author: osaprych <osaprych@gmail.com>
+Date:   Mon Jun 10 18:41:00 2013 -0400
+
+    Create RunCollatz.py
+
+commit 421236e9214bdd4ef1f05e233545625dac5cc64d
+Author: osaprych <osaprych@gmail.com>
+Date:   Mon Jun 10 18:40:06 2013 -0400
+
+    Update and rename README.md to Collatz.py
+
 commit d1660de14067e816ab512687a2597e1d02a9bbb8
 Author: Olga <osaprych@gmail.com>
 Date:   Mon Jun 10 16:14:30 2013 -0500
