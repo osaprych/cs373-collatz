@@ -41,45 +41,33 @@ def collatz_eval (i, j) :
     """
     assert i > 0
     assert j > 0
-    #assert i < j
-    v = 1
-    if i > j :
+    v = 1 # cycle length
+    if i > j : # swap if needed
         temp = i
         i = j
         j = temp
     if i < j / 2 :
         i = j / 2
+
+    # try to implement LAZY CACHE
+    lazyCache = {}
     for k in range(i, j):
         c = 1
-        #k = i
         while k > 1 :
-            if (k % 2) == 0 :
-                k = (k / 2)
-                c += 1
+            if k in lazyCache : # search if k is in keys
+		c = (lazyCache[k]) + c - 1
+                k = 1
             else :
-                k = (1.5 * k) + 0.5 #k = (3 * k) + 1
-                c += 2
+                if (k % 2) == 0 :
+                    k = (k / 2)
+                    c += 1
+                else :
+                    k = (1.5 * k) + 0.5 #k = (3 * k) + 1
+                    c += 2
         if (v < c) :
             v = c
+        lazyCache[i] = c
         i+=1
-    """	
-    v = 1
-	while(i < j):
-		k = i; # new i that can be changed
-		while (i > 1):
-			n = 0
-			if (k%2 == 1):
-				k = (3*k) + 1
-				n+=1 # increment the counter
-			else:
-				k = k/2
-				n+=1 # increment the counter
-			
-			if (v < n):
-				v = n
-				
-			i+=1
-    """
     assert v > 0
     return v
 
