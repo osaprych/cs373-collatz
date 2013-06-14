@@ -86,18 +86,18 @@ class TestCollatz (unittest.TestCase) :
 
     def test_print2 (self) :
         w = StringIO.StringIO()
-        collatz_print(w, 1, 10, 20)
-        self.assert_(w.getvalue() == "1 10 20\n")
+        collatz_print(w, 1, 1, 1)
+        self.assert_(w.getvalue() == "1 1 1\n")
 
     def test_print3 (self) :
         w = StringIO.StringIO()
-        collatz_print(w, 1, 10, 20)
-        self.assert_(w.getvalue() == "1 10 20\n")
+        collatz_print(w, 10, 1, 20)
+        self.assert_(w.getvalue() == "10 1 20\n")
 
     def test_print4 (self) :
         w = StringIO.StringIO()
-        collatz_print(w, 1, 10, 20)
-        self.assert_(w.getvalue() == "1 10 20\n")
+        collatz_print(w, 10, 10, 10)
+        self.assert_(w.getvalue() == "10 10 10\n")
     # -----
     # solve
     # -----

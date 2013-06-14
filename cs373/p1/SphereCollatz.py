@@ -1,5 +1,5 @@
 import sys
-
+lazyCache = {}
 #!/usr/bin/env python
 
 # ---------------------------
@@ -42,25 +42,33 @@ def collatz_eval (i, j) :
     assert i > 0
     assert j > 0
     #assert i < j
-    v = 1
+    v = 1 # cycle length
     if i > j :
         temp = i
         i = j
         j = temp
     if i < j / 2 :
         i = j / 2
-    for k in range(i, j):
+
+    # try to implement LAZY CACHE
+    lazyCache = {}
+    for k in range(i, j+1):
         c = 1
         #k = i
         while k > 1 :
-            if (k % 2) == 0 :
-                k = (k / 2)
-                c += 1
+            if k in lazyCache : # search if k is in keys#
+		c = (lazyCache[k]) + c - 1
+                k = 1
             else :
-                k = (1.5 * k) + 0.5 #k = (3 * k) + 1
-                c += 2
+                if (k % 2) == 0 :
+                    k = (k / 2)
+                    c += 1
+                else :
+                    k = (1.5 * k) + 0.5 #k = (3 * k) + 1
+                    c += 2
         if (v < c) :
             v = c
+        lazyCache[i] = c #lazyCache[i].append(c)
         i+=1
     """	
     v = 1
