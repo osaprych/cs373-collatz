@@ -1,3 +1,21 @@
+commit 1221a9474da384087dbd5bff58d372c53f2c9c6a
+Author: Olga <osaprych@gmail.com>
+Date:   Thu Jun 13 19:41:47 2013 -0500
+
+    adding unit and acceptance tests
+
+commit fce6c0925d16e8ae2fad60ca1905e7f84cc1a440
+Author: Olga <osaprych@gmail.com>
+Date:   Thu Jun 13 19:33:18 2013 -0500
+
+    the test cases are ready to be submitted
+
+commit 2fff2ced06cd441ec4fad72cf08fadfad79d1bcb
+Author: Olga <osaprych@gmail.com>
+Date:   Thu Jun 13 19:25:58 2013 -0500
+
+    next commit with working code and with comments
+
 commit e92797c376eb74d26680a5cde36cf2d8a2b9aa1c
 Author: Olga <osaprych@gmail.com>
 Date:   Thu Jun 13 18:40:26 2013 -0500
