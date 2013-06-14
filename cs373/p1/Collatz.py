@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+"""
+This solution uses Lazy Cache which is located outside of the collatz_eval function
+"""
 lazyCache = {}
 # ---------------------------
 # projects/collatz/Collatz.py
@@ -32,44 +35,60 @@ def collatz_read (r, a) :
 # ------------
 
 def collatz_eval (i, j) :
-    """
-    i is the beginning of the range, inclusive
-    j is the end of the range, inclusive
-    return the max cycle length in the range [i, j]
-    """
-    assert i > 0
-    assert j > 0
-    v = 1 # cycle length
-    if i > j :
-        temp = i
-        i = j
-        j = temp
-    if i < j / 2 :
-        i = j / 2
-
-    # try to implement LAZY CACHE
-
-    for k in range(i, j+1):
-        c = 1
-        #k = i
-        while k > 1 :
-            if k in lazyCache : # search if k is in keys
-		c = (lazyCache[k]) + c - 1
-                k = 1
-            else :
-                if (k % 2) == 0 :
-                    k = (k / 2)
-                    c += 1
-                else :
-                    k = (1.5 * k) + 0.5
-                    c += 2
-        if (v < c) :
-            v = c
-        lazyCache[i] = c
+	"""
+	i is the beginning of the range, inclusive
+	j is the end of the range, inclusive
+	return the max cycle length in the range [i, j]
+	"""
+	assert i > 0
+	assert j > 0
+	maxLength = 1
+	"""
+	if i > j, swap i and j
+	"""
+	if i > j :
+		temp = i
+		i = j
+		j = temp
+	"""
+	if i is less than a half of j, the we don't have to check the part of the
+	range that is less than j/2 becuase cycle lengths in this range are going to 
+	be smaller than cycle lengths in the range from j/2 to j
+	"""
+	if i < j / 2 :
+		i = j / 2
+	"""
+    LAZY CACHE implementation
+	- for each number in a range between i and j check if if it's in lazy cache
+	- if it's not there add it to lazy cache and if the number is even, diveide it by two
+	and increment count of cycle length by one. If the number is odd, we know that
+	the next number is going to be even, so we can combine two operations in one
+	by multipying the number by 1.5 and adding 0.5, thus increment count by two.
+	- when the currnet number in the range reaches one, we compare it to maximum 
+	cycle length of previous numbers and if current count is greater, set 
+	maxLength equal to the current count
+	- repeat until all cycle lengths are calculated
+	"""
+	for k in range(i, j+1):
+		count = 1
+		while k > 1 :
+				if k in lazyCache :
+					count = (lazyCache[k]) + count - 1
+					k = 1
+				else :
+					if (k % 2) == 0 :
+						k = (k / 2)
+						count += 1
+					else :
+						k = (1.5 * k) + 0.5
+						count += 2
+        if (maxLength < count) :
+            maxLength = count
+        lazyCache[i] = count
         i+=1
 
-    assert v > 0
-    return v
+	assert maxLength > 0
+	return maxLength
 
 # -------------
 # collatz_print
